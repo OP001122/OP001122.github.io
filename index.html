@@ -3,10 +3,505 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人网站</title>
+    <title>个人简历 - 敬源</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        .gradient-text {
+            color: #8B0000;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
-<body>
-    <h1>你好，世界！</h1>
-    <p>欢迎来到我的第一个个人网站。这里是使用 GitHub Pages 搭建的。</p>
+<body class="bg-black">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold gradient-text">敬源</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-300 hover:text-red-700 transition-colors">首页</a>
+                <a href="#about" class="text-gray-300 hover:text-red-700 transition-colors">关于我</a>
+                <a href="#skills" class="text-gray-300 hover:text-red-700 transition-colors">技能</a>
+                <a href="#awards" class="text-gray-300 hover:text-red-700 transition-colors">奖项</a>
+                <a href="#contact" class="text-gray-300 hover:text-red-700 transition-colors">联系方式</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-gray-300">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 absolute top-full left-0 right-0 shadow-lg">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block text-gray-300 hover:text-red-700">首页</a>
+                <a href="#about" class="block text-gray-300 hover:text-red-700">关于我</a>
+                <a href="#skills" class="block text-gray-300 hover:text-red-700">技能</a>
+                <a href="#awards" class="block text-gray-300 hover:text-red-700">奖项</a>
+                <a href="#contact" class="block text-gray-300 hover:text-red-700">联系方式</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6 bg-black">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                    你好，我是<span class="gradient-text">敬源</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed">
+                    数据分析与经营管理专业学生，热爱数据驱动决策，具备扎实的数据分析技能和丰富的竞赛经验。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#contact" class="inline-block px-8 py-3 bg-red-900 text-white rounded-full font-medium hover:bg-red-800 transition-colors">
+                        联系我
+                    </a>
+                    <a href="#awards" class="inline-block px-8 py-3 border-2 border-red-900 text-red-900 rounded-full font-medium hover:bg-red-900 hover:text-white transition-colors">
+                        查看奖项
+                    </a>
+                </div>
+            </div>
+            <div class="flex justify-center fade-in">
+                <div class="w-72 h-72 rounded-full overflow-hidden border-4 border-gray-700 shadow-2xl">
+                    <img src="https://cdn.phototourl.com/free/2026-07-15-51dfd6b0-a0c7-4407-b846-04de5e092034.jpg" alt="个人照片" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-6 bg-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">关于我</h2>
+                <div class="w-20 h-1 bg-red-900 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center fade-in">
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">个人简介</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        我是一名数据分析与经营管理专业的本科生，在校期间积极参与各类学科竞赛和实践活动，
+                        积累了丰富的团队协作和数据分析经验。我擅长将数据转化为洞察，为决策提供有力支持。
+                    </p>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        我热爱学习新技术，对数据分析、商业智能和决策模拟有浓厚兴趣。
+                        在校期间获得多项省级和国家级竞赛奖项，具备较强的问题解决能力和创新思维。
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <div class="text-2xl font-bold gradient-text">本科</div>
+                            <div class="text-gray-400">西南财经大学天府学院</div>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <div class="text-2xl font-bold gradient-text">数据分析</div>
+                            <div class="text-gray-400">经营管理专业</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-2xl p-8">
+                    <h3 class="text-xl font-semibold text-white mb-6">教育背景</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-graduation-cap text-red-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">西南财经大学天府学院</h4>
+                                <p class="text-gray-500">2022 - 至今</p>
+                                <p class="text-gray-400">数据分析与经营管理专业 | 本科</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-book-open text-red-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">主修课程</h4>
+                                <p class="text-gray-400">数据分析、统计学、市场营销、财务管理、运营管理</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-award text-red-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">学术成果</h4>
+                                <p class="text-gray-400">多次获得校级奖学金，参与多项科研项目</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 px-6 bg-black text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">专业技能</h2>
+                <div class="w-20 h-1 bg-red-900 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
+                <div class="bg-gray-900 rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-red-900 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">数据分析</h3>
+                    <p class="text-gray-400 mb-4">熟练使用Excel、Python进行数据清洗、分析和可视化</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Excel</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Python</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">SQL</span>
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-red-900 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-bar-chart text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">数据可视化</h3>
+                    <p class="text-gray-400 mb-4">擅长使用各类工具创建直观的数据报表和仪表盘</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Tableau</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Power BI</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Matplotlib</span>
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-red-900 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-gamepad text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">决策模拟</h3>
+                    <p class="text-gray-400 mb-4">丰富的企业竞争模拟和经营决策经验</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">企模大赛</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">沙盘模拟</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">战略分析</span>
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-red-900 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-laptop-code text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">编程技能</h3>
+                    <p class="text-gray-400 mb-4">掌握Python、HTML/CSS等编程语言和工具</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Python</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">HTML/CSS</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">JavaScript</span>
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-red-900 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">团队协作</h3>
+                    <p class="text-gray-400 mb-4">优秀的团队沟通和项目管理能力</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">项目管理</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">沟通协调</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">领导力</span>
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-red-900 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-search text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">研究能力</h3>
+                    <p class="text-gray-400 mb-4">具备独立研究和学术写作能力</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">文献调研</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">报告撰写</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">数据挖掘</span>
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-red-900 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">TRAE</h3>
+                    <p class="text-gray-400 mb-4">熟练使用TRAE AI辅助开发平台进行代码生成和自动化任务</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">AI开发</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">自动化</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">代码生成</span>
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-red-900 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-comments text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Workbudd</h3>
+                    <p class="text-gray-400 mb-4">掌握Workbudd协作工具进行团队项目管理和沟通协作</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">协作管理</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">任务追踪</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">团队沟通</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="awards" class="py-20 px-6 bg-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">荣誉奖项</h2>
+                <div class="w-20 h-1 bg-red-900 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
+                <div class="bg-gray-800 border border-gray-700 rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="奖项/2024四川省大学生经营管理决策模拟大赛三等奖.jpg" alt="四川省大学生经营管理决策模拟大赛三等奖" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-medal text-yellow-500"></i>
+                            <span class="text-red-700 font-medium">省级三等奖</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">四川省大学生经营管理决策模拟大赛</h3>
+                        <p class="text-gray-400 text-sm">2024年</p>
+                    </div>
+                </div>
+                <div class="bg-gray-800 border border-gray-700 rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="奖项/2024暑假三下乡优秀团队.jpg" alt="暑假三下乡优秀团队" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-award text-yellow-500"></i>
+                            <span class="text-red-700 font-medium">校级优秀团队</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">暑假三下乡社会实践</h3>
+                        <p class="text-gray-400 text-sm">2024年</p>
+                    </div>
+                </div>
+                <div class="bg-gray-800 border border-gray-700 rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="奖项/2025年全国企业竞争模拟大赛三等奖.jpg" alt="全国企业竞争模拟大赛三等奖" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-trophy text-yellow-600"></i>
+                            <span class="text-red-700 font-medium">国家级三等奖</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">全国企业竞争模拟大赛</h3>
+                        <p class="text-gray-400 text-sm">2025年</p>
+                    </div>
+                </div>
+                <div class="bg-gray-800 border border-gray-700 rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="奖项/数据分析专业技能证书.png" alt="数据分析专业技能证书" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-certificate text-red-700"></i>
+                            <span class="text-red-700 font-medium">技能证书</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">数据分析专业技能证书</h3>
+                        <p class="text-gray-400 text-sm">专业能力认证</p>
+                    </div>
+                </div>
+                <div class="bg-gray-800 border border-gray-700 rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="奖项/第四届大学生数据分析科普竞赛一等奖.png" alt="大学生数据分析科普竞赛一等奖" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-first-place text-red-600"></i>
+                            <span class="text-red-700 font-medium">校级一等奖</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">大学生数据分析科普竞赛</h3>
+                        <p class="text-gray-400 text-sm">2024年</p>
+                    </div>
+                </div>
+                <div class="bg-gray-800 border border-gray-700 rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="奖项/4995c2e7bcbac8be086b9612a53f3b43.jpg" alt="荣誉证书" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-award text-red-700"></i>
+                            <span class="text-red-700 font-medium">荣誉证书</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">优秀学生荣誉证书</h3>
+                        <p class="text-gray-400 text-sm">校级表彰</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-6 bg-red-900 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">联系我</h2>
+                <div class="w-20 h-1 bg-white mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 fade-in">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">联系方式</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">地址</h4>
+                                <p class="text-gray-200">西南财经大学天府学院</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">电话</h4>
+                                <p class="text-gray-200">138-xxxx-xxxx</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">邮箱</h4>
+                                <p class="text-gray-200">jingyuan@example.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">个人主页</h4>
+                                <p class="text-gray-200">www.jingyuan.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fab fa-weixin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fab fa-qq"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-black/30 rounded-xl p-8">
+                    <h3 class="text-xl font-semibold mb-6">发送消息</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="您的姓名" class="w-full px-4 py-3 bg-black/30 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-red-700">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="您的邮箱" class="w-full px-4 py-3 bg-black/30 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-red-700">
+                        </div>
+                        <div>
+                            <textarea placeholder="您的消息" rows="4" class="w-full px-4 py-3 bg-black/30 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-red-700"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 bg-white text-red-900 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                            发送消息
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 px-6 bg-black text-gray-400 text-center">
+        <p>&copy; 2024 敬源. 保留所有权利.</p>
+        <p class="mt-2 text-sm">个人简历网站</p>
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-red-900 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-red-800">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('navbar');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const backToTopBtn = document.getElementById('back-to-top');
+            const fadeInElements = document.querySelectorAll('.fade-in');
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('nav-scrolled');
+                } else {
+                    navbar.classList.remove('nav-scrolled');
+                }
+
+                if (window.scrollY > 500) {
+                    backToTopBtn.classList.remove('opacity-0', 'invisible');
+                    backToTopBtn.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'invisible');
+                    backToTopBtn.classList.remove('opacity-100', 'visible');
+                }
+
+                fadeInElements.forEach(function(element) {
+                    const position = element.getBoundingClientRect();
+                    if (position.top < window.innerHeight * 0.85) {
+                        element.classList.add('visible');
+                    }
+                });
+            });
+
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('消息已发送！感谢您的联系。');
+                this.reset();
+            });
+
+            fadeInElements.forEach(function(element) {
+                const position = element.getBoundingClientRect();
+                if (position.top < window.innerHeight * 0.85) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
